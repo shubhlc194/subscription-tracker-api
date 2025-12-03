@@ -4,4 +4,4 @@ import path from "path";
 const envFile = path.resolve(process.cwd(), `.env.${process.env.NODE_ENV || "development"}.local`);
 config({ path: envFile });
 
-export const { PORT, NODE_ENV,DB_URL } = process.env;
+export const { PORT, NODE_ENV,DB_URL,jwt_secret,jwt_EXPIRE_IN } = process.env;

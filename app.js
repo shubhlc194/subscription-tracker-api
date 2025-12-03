@@ -6,12 +6,16 @@ import userRouter from './routes/user.routes.js';
 import subscriptionRouter from './routes/subscription.routes.js';
 import ConnectToDataBase from './routes/database/mongodb.js';
 import errorMiddleware from './middleware/error.middleware.js';
+import cookieParser from 'cookie-parser';
 const app = express();
 const port = Number(PORT) || 5050;
 
 app.use('/api/v1/auth',authRouter);
 app.use('/api/v1/users',userRouter)
 app.use('/api/v1/subscription',subscriptionRouter)
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({extended:'false'}));
 app.get('/', (req, res) => {
   res.send("welcome to subscription Tracker API !");
 });
