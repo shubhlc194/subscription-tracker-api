@@ -16,7 +16,7 @@ subscriptionRouter.get('/:id',(req,res)=>{
 
 subscriptionRouter.post('/',(req,res)=>{
     res.send({
-        title:"create subscription subscription"
+        title:"create  subscription"
 
     })
 })

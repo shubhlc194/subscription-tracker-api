@@ -4,6 +4,8 @@ import { PORT } from './config/env.js';
 import authRouter from './routes/auth.routes.js';
 import userRouter from './routes/user.routes.js';
 import subscriptionRouter from './routes/subscription.routes.js';
+import ConnectToDataBase from './routes/database/mongodb.js';
+import errorMiddleware from './middleware/error.middleware.js';
 const app = express();
 const port = Number(PORT) || 5050;
 
@@ -16,6 +18,7 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Subscription Tracking Api is running on http://localhost:${port}`);
+  ConnectToDataBase();
 });
 
 export default app;
